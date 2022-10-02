@@ -302,12 +302,6 @@ void init_menubar_button() {
     glutDisplayFunc(about_display);
     glutReshapeFunc(about_reshape);
     glutCloseFunc(nothing);
-    cout << "This is a simple paint program." << endl;
-    cout << "You can draw some simple shapes." << endl;
-    cout << "You can also draw some text." << endl;
-    cout << "You can save your drawing." << endl;
-    cout << "You can also load your drawing." << endl;
-    cout << "Have fun!" << endl;
   });
   menus[1].push_back(button(85, 30, 120, 30, "Text"));
   menus[1][0].set_func([&]() {
