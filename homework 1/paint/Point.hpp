@@ -10,7 +10,6 @@ namespace paint {
                 // TODO
             }
             void draw(int height, int width) {
-                glLineWidth(5);
                 glColor3f(r, g, b);
                 glBegin(GL_POINTS);
                     glVertex2i(x, height - y);

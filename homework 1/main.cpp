@@ -238,6 +238,7 @@ void keyboard_func(unsigned char key, int x, int y) {
       paints.push_back(text);
     }
   }
+  glutPostRedisplay();
 }
 float about_w, about_h;
 void about_display() {

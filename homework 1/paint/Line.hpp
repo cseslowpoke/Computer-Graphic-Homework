@@ -9,7 +9,8 @@ namespace paint {
         public:
             Line(){};
             void draw(int height, int width) {
-                glColor3f(0, 0, 0);
+                glColor3f(r, g, b);
+                glLineWidth(linewidth);
                 glBegin(GL_LINES);
                     for (int i = 0; i < points.size(); i++) {
                         glVertex2f(points[i].first,height- points[i].second);
