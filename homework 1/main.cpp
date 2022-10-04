@@ -206,6 +206,12 @@ void mouse_func(int bt, int state, int x, int y) {
 }
 
 void mouse_routine(int x, int y) {
+  if(y > 120) {
+    glutSetCursor(GLUT_CURSOR_CROSSHAIR);
+  }
+  else {
+    glutSetCursor(GLUT_CURSOR_LEFT_ARROW);
+  }
   for(int i = 0; i < buttons.size(); i++) {
     if (buttons[i].get_pushed()) {
       for (int j = 0; j < menus[i].size(); j++) {
