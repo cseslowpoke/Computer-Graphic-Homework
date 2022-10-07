@@ -40,6 +40,7 @@ paint::Polygon *polygon = NULL;
 
 
 int height = 1000, width = 1000;
+
 int main(int argc, char *argv[]) {
   // Initialize GLUT
   glutInit(&argc, argv);
@@ -284,102 +285,99 @@ void init_menubar_button() {
   dragbars.push_back(d4);
 
   
-  button b1(0, 0, 80, 30, "File");
-  button b2(85, 0, 80, 30, "Type");
-  button b3(170, 0, 80, 30, "Mode");
+  button b1(0, 0, 80, 30, "File", [](){});
+  button b2(85, 0, 80, 30, "Type", [](){});
+  button b3(170, 0, 80, 30, "Mode", [](){});
   buttons.push_back(b1);
   buttons.push_back(b2);
   buttons.push_back(b3);
   menus.resize(3);
-  menus[0].push_back(button(0, 30, 120, 30, "New"));
-  menus[0][0].set_func([&]() {
+  menus[0].push_back(button(0, 30, 120, 30, "New", [&]() {
     polygon = NULL;
     now_paint = NULL;
     is_polygon = false;
     now_polygon = false;
     paints.clear();
     glutPostRedisplay();
-  });
-  menus[0].push_back(button(0, 60, 120, 30, "Save"));
-  menus[0].push_back(button(0, 90, 120, 30, "About"));
-  menus[0][2].set_func([&]() {
+  }));
+  menus[0].push_back(button(0, 60, 120, 30, "Save", [&](){}));
+  menus[0].push_back(button(0, 90, 120, 30, "About", [&]() {
     glutInitWindowPosition(300, 300);
     glutInitWindowSize(300, 300);
     GLint attack = glutCreateWindow("about");
     glutDisplayFunc(about_display);
     glutReshapeFunc(about_reshape);
     glutCloseFunc(nothing);
-  });
-  menus[1].push_back(button(85, 30, 120, 30, "Text"));
-  menus[1][0].set_func([&]() {
-    is_Text = true;
-    polygon = NULL;
+  }));
+  menus[1].push_back(button(85, 30, 120, 30, "Mouse", [&]() {
+    is_polygon = false;
+    now_polygon = false;
     now_paint = NULL;
+    is_Text = false;
+    polygon = NULL;
+  }));
+  menus[1].push_back(button(85, 60, 120, 30, "Text", [&]() {
+    is_Text = true;
+    
+    now_paint = NULL;
+    polygon = NULL;
     is_polygon = false;
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 60, 120, 30, "Point"));
-  menus[1][1].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 90, 120, 30, "Point", [&]() {
     is_Text = false;
     polygon = NULL;
     now_paint = new paint::Point();
     is_polygon = false;
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 90, 120, 30, "Line"));
-  menus[1][2].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 120, 120, 30, "Line", [&]() {
     is_Text = false;
     polygon = NULL;
     now_paint = new paint::Line();
     is_polygon = false;
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 120, 120, 30, "Rectangle"));
-  menus[1][3].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 150, 120, 30, "Rectangle", [&]() {
     is_Text = false;
     polygon = NULL;
     now_paint = new paint::Rectangle();
     is_polygon = false;
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 150, 120, 30, "Circle"));
-  menus[1][4].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 180, 120, 30, "Circle", [&]() {
     is_Text = false;
     polygon = NULL;
     now_paint = new paint::Circle();
     is_polygon = false;
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 180, 120, 30, "Polygon"));
-  menus[1][5].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 210, 120, 30, "Polygon", [&]() {
     is_Text = false;
     polygon = new paint::Polygon();
     now_paint = NULL;
     is_polygon = true;
     now_draw = false;
     glutPostRedisplay();
-  });
-  menus[1].push_back(button(85, 210, 120, 30, "Curve"));
-  menus[1][6].set_func([&]() {
+  }));
+  menus[1].push_back(button(85, 240, 120, 30, "Curve", [&]() {
     is_Text = false;
     polygon = NULL;
     now_paint = new paint::Curve();
     is_polygon = false; 
     now_polygon = false;
     glutPostRedisplay();
-  });
-  menus[2].push_back(button(170, 30, 120, 30, "Fill"));
-  
-  menus[2][0].set_func([&]() {
+  }));
+  menus[2].push_back(button(170, 30, 120, 30, "Fill", [&]() {
     now_mode = GL_FILL;
-  });
-  menus[2].push_back(button(170, 60, 120, 30, "Line"));
-  menus[2][1].set_func([&]() {
+  }));
+  
+  menus[2].push_back(button(170, 60, 120, 30, "Line", [&]() {
     now_mode = GL_LINE;
-  });
+  }));
 }

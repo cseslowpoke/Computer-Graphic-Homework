@@ -11,12 +11,13 @@ class button{
     std::string name;
     std::function<void()> func;
     public:
-        button(float posX, float posY, float width, float height, std::string name) {
+        button(float posX, float posY, float width, float height, std::string name, std::function<void()> func) {
             this->posX = posX;
             this->posY = posY;
             this->width = width;
             this->height = height;
             this->name = name;
+            this->func = func;
             mouseon = 0;
             pushed = 0;
         }
