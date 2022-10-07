@@ -15,7 +15,7 @@ namespace paint {
             void draw(int height, int width) {
                 glPolygonMode(GL_FRONT_AND_BACK, mode);
                 glLineWidth(linewidth);
-                 glColor3f(r, g, b);
+                glColor3f(r, g, b);
                 if(!end) {
                     glBegin(GL_LINE_STRIP);
                         for(auto point : points) {

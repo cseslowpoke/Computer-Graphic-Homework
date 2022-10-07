@@ -13,6 +13,7 @@ namespace paint {
             void draw(int height, int width) {
                 if(points.size() != 2) return;
                 glColor3f(r, g, b);
+                glLineWidth(linewidth);
                 glPolygonMode(GL_FRONT_AND_BACK, mode);
                 glBegin(GL_POLYGON);
                     glVertex2i(points[0].first, height - points[0].second);
