@@ -2,6 +2,7 @@
 #include<iostream>
 namespace menubar {
     void draw(int height, int width) {
+        
         glLineWidth(1);
         glColor3f(0.7, 0.7, 0.7);
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);

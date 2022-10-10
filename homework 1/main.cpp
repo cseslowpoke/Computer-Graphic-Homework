@@ -5,6 +5,7 @@
 #include "dragbar.hpp"
 #include "menubar.hpp"
 #include "preview_color.hpp"
+#include "gridline.hpp"
 #include "paint.hpp"
 #include "paint/Line.hpp"
 #include "paint/Curve.hpp"
@@ -30,8 +31,10 @@ vector<button> buttons;
 vector<dragbar> dragbars;
 vector<vector<button> > menus;
 vector<paint::paints*> paints;
+vector<paint::paints*> copy_paints;
 preview_color preview(450, 38, 75, 75);
 paint::paints *now_paint = NULL;
+int now_grid = 1;
 int now_mode = GL_FILL;
 float now_linewidth = 1;
 bool is_Text = false;
@@ -91,6 +94,9 @@ void reshape_func(int new_w, int new_h) {
 void display() {
   glClearColor(1, 1, 1, 1);
   glClear(GL_COLOR_BUFFER_BIT);
+  if(now_grid) {
+    girdline::draw(height, width);
+  }
   float line_width_radio = dragbars[0].get_ratio();
   float r = dragbars[1].get_ratio();
   float g = dragbars[2].get_ratio();
@@ -234,6 +240,11 @@ void mouse_routine(int x, int y) {
 }
 
 void keyboard_func(unsigned char key, int x, int y) {
+  if(key == 26) {
+    if(paints.size() > 0) {
+      paints.pop_back();
+    }
+  }
   if(y > 120 && is_Text) {
     paint::Text *text = new paint::Text();
     if('a' <= key <= 'z' || 'A' <= key <= 'Z' || '0' <= key <= '9') {
@@ -288,10 +299,12 @@ void init_menubar_button() {
   button b1(0, 0, 80, 30, "File", [](){});
   button b2(85, 0, 80, 30, "Type", [](){});
   button b3(170, 0, 80, 30, "Mode", [](){});
+  button b4(255, 0, 80, 30, "Func", [](){});
   buttons.push_back(b1);
   buttons.push_back(b2);
   buttons.push_back(b3);
-  menus.resize(3);
+  buttons.push_back(b4);
+  menus.resize(4);
   menus[0].push_back(button(0, 30, 120, 30, "New", [&]() {
     polygon = NULL;
     now_paint = NULL;
@@ -380,4 +393,23 @@ void init_menubar_button() {
   menus[2].push_back(button(170, 60, 120, 30, "Line", [&]() {
     now_mode = GL_LINE;
   }));
+
+  menus[3].push_back(button(255, 30, 120, 30, "GridLine", [&](){
+    now_grid = !now_grid;
+  }));
+  
+  menus[3].push_back(button(255, 60, 120, 30, "Save Panel", [&](){
+    copy_paints.clear();
+    for(auto i:paints) {
+      copy_paints.push_back(i->clone());
+    }
+  }));
+
+  menus[3].push_back(button(255, 90, 120, 30, "Load Panel", [&](){
+    paints.clear();
+    for(auto i:copy_paints) {
+      paints.push_back(i->clone());
+    }
+  }));
+  
 }
