@@ -21,7 +21,7 @@ int width = 1024, height = 1024;
  * Procedure to initialize the working environment.
  */
 void myinit() {
-  glClearColor(0.0, 0.0, 0.0, 1.0); /*set the background color BLACK */
+  glClearColor(0.3, 0.3, 0.3, 0.5); /*set the background color BLACK */
                                     /*Clear the Depth & Color Buffers */
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -55,10 +55,9 @@ void display() {
   // robot::get_z(), 0.0, 1.0, 0.0);
   /*----Draw the ground----*/
   environment::draw();
-  draw_axes();
   // glScaled(0.5, 0.5, 0.5);
   robot::draw();
-
+  // draw_axes();
   /*-------Swap the back buffer to the front --------*/
   glutSwapBuffers();
   glFlush(); /*--Display the results----*/
@@ -126,7 +125,9 @@ void my_keyboard(unsigned char key, int x, int y) {
   } else if (key == 'k') {
     robot::knee_down();
   } else if (key == 'f') {
-    robot::grasp_or_drop();
+    robot::grasp_or_drop_left();
+  } else if (key == 'r') {
+    robot::grasp_or_drop_right();
   }
   display();
   // std::cerr << glutGetModifiers() << ' ' << key << '\n';;

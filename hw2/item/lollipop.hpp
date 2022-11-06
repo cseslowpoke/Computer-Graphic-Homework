@@ -27,6 +27,10 @@ public:
     glTranslated(0, 0, 10);
     glColor3f(1, 0, 0);
     gluSphere(sphere, 2, 10, 10);
+    // glTranslated(0, 0, 0.8);
+    glColor3f(1, 0.3, 0.3);
+    glScaled(1, 1, 0.2);
+    gluSphere(sphere, 2.2, 10, 10);
     glPopMatrix();
   }
   void setxy(double x, double y, double angle = 0) {

@@ -13,5 +13,7 @@ void draw() {
   draw_items();
 }
 void init() { init_items(); }
-bool detect_collision(float x0, float y0) { obs.detect_collision(x0, y0); }
+bool detect_collision(float x0, float y0) {
+  return obs.detect_collision(x0, y0);
+}
 } // namespace environment
