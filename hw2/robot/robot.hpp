@@ -24,7 +24,7 @@ void init(float _x, float _y, float _z) {
 }
 int tmp = 0;
 void draw() {
-  // std::cerr <<is_walk << ' '<< walk << '\n';;
+  std::cerr << tmp++ << '\n';
   glPushMatrix();
   glTranslatef(x, y, z);
   glRotated(angle, 0, 1, 0);
@@ -76,7 +76,7 @@ void draw() {
   if (is_walk)
     is_walk--;
   if (is_jump) {
-    is_jump += 3;
+    is_jump += 50;
     if (is_jump >= 8000) {
       is_jump = 0;
     }
@@ -91,7 +91,7 @@ void draw() {
     torsola.walk_forward();
     torsola.walk_forward();
   }
-  
+
   torsola.draw();
   glPopMatrix();
 }

@@ -5,9 +5,12 @@
  * by S. K. Ueng, Nov.  2006
  */
 #include "./environment/init.hpp"
-#include <math.h>
 #include "./robot/robot.hpp"
 #include <GL/glut.h>
+#include <math.h>
+
+#include <thread>
+#include <chrono>
 
 /*-----Define window size----*/
 int width = 1024, height = 1024;
@@ -88,10 +91,12 @@ void my_reshape(int w, int h) {
   glLoadIdentity();
   glOrtho(-40.0, 40.0, -40, 40, 0.0, 120.0);
 }
+
 /*--------------------------------------------------
  * Keyboard callback func. When a 'q' key is pressed,
  * the program is aborted.
  */
+
 void my_keyboard(unsigned char key, int x, int y) {
   if (key == '1') {
     view_x += 5;
@@ -112,10 +117,8 @@ void my_keyboard(unsigned char key, int x, int y) {
   } else if (key == 'W' && glutGetModifiers() == GLUT_ACTIVE_SHIFT) {
 
   } else if (key == 'w') {
-    // robot::set_z(robot::get_z() + 0.5);
     robot::walk_forward();
   } else if (key == 's') {
-    // robot::set_z(robot::get_z() - 0.5);
     robot::walk_backward();
   } else if (key == 'j') {
     robot::jump();
@@ -137,7 +140,10 @@ void my_keyboard(unsigned char key, int x, int y) {
  * rotation angles.
  */
 int times = 0;
-void idle_func() { display(); /* show the scene again */ }
+void idle_func() { 
+  display(); /* show the scene again */ 
+  std::this_thread::sleep_for(std::chrono::milliseconds(20));
+}
 
 void init() {
   robot::init(25, 13, 10);
@@ -147,8 +153,9 @@ void init() {
  * Main procedure which defines the graphics environment,
  * the operation style, and the callback func's.
  */
+
 int main(int argc, char **argv) {
-  
+
   /*-----Initialize the GLUT environment-------*/
   glutInit(&argc, argv);
 
