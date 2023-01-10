@@ -1,0 +1,72 @@
+In file included from ./environment/obstacles.hpp:2,
+                 from ./environment/init.hpp:5,
+                 from main.cpp:5:
+./environment/stone.hpp: In constructor 'environment::stone::stone(int, int)':
+./environment/stone.hpp:32:12: error: expected primary-expression before '.' token
+   32 |     texture.load("blackmarble.bmp");
+      |            ^
+./environment/stone.hpp: In member function 'void environment::stone::draw()':
+./environment/stone.hpp:58:14: error: expected primary-expression before '.' token
+   58 |       texture.bind();
+      |              ^
+./environment/stone.hpp:65:14: error: expected primary-expression before '.' token
+   65 |       texture.unbind();
+      |              ^
+In file included from ./robot/head.hpp:1,
+                 from ./robot/torso.hpp:5,
+                 from ./robot/robot.hpp:5,
+                 from main.cpp:6:
+./robot/../Gundam/head.hpp: In constructor 'gundam::head::head()':
+./robot/../Gundam/head.hpp:92:23: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::horn1[i][0]) - 6.9999999999999996e-1)' from 'double' to 'float' [-Wnarrowing]
+   92 |           horn1[i][0] - 0.7,
+      |           ~~~~~~~~~~~~^~~~~
+./robot/../Gundam/head.hpp:97:27: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::horn1[(i + 1)][0]) - 6.9999999999999996e-1)' from 'double' to 'float' [-Wnarrowing]
+   97 |           horn1[i + 1][0] - 0.7,
+      |           ~~~~~~~~~~~~~~~~^~~~~
+./robot/../Gundam/head.hpp:113:23: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::horn2[i][0]) + 6.9999999999999996e-1)' from 'double' to 'float' [-Wnarrowing]
+  113 |           horn2[i][0] + 0.7,
+      |           ~~~~~~~~~~~~^~~~~
+./robot/../Gundam/head.hpp:118:27: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::horn2[(i + 1)][0]) + 6.9999999999999996e-1)' from 'double' to 'float' [-Wnarrowing]
+  118 |           horn2[i + 1][0] + 0.7,
+      |           ~~~~~~~~~~~~~~~~^~~~~
+./robot/../Gundam/head.hpp:134:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[i][0]) - 5.5500000000000005e-1)' from 'double' to 'float' [-Wnarrowing]
+  134 |           eye1[i][0] - 0.555,
+      |           ~~~~~~~~~~~^~~~~~~
+./robot/../Gundam/head.hpp:135:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[i][1]) + 9.6128800000000003e-1)' from 'double' to 'float' [-Wnarrowing]
+  135 |           eye1[i][1] + 0.961288,
+      |           ~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:136:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[i][2]) + 8.3333299999999999e-1)' from 'double' to 'float' [-Wnarrowing]
+  136 |           eye1[i][2] + 0.833333,
+      |           ~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:139:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[(i + 1)][0]) - 5.5500000000000005e-1)' from 'double' to 'float' [-Wnarrowing]
+  139 |           eye1[i + 1][0] - 0.555,
+      |           ~~~~~~~~~~~~~~~^~~~~~~
+./robot/../Gundam/head.hpp:140:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[(i + 1)][1]) + 9.6128800000000003e-1)' from 'double' to 'float' [-Wnarrowing]
+  140 |           eye1[i + 1][1] + 0.961288,
+      |           ~~~~~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:141:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye1[(i + 1)][2]) + 8.3333299999999999e-1)' from 'double' to 'float' [-Wnarrowing]
+  141 |           eye1[i + 1][2] + 0.833333,
+      |           ~~~~~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:155:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[i][0]) + 5.5500000000000005e-1)' from 'double' to 'float' [-Wnarrowing]
+  155 |           eye2[i][0] + 0.555,
+      |           ~~~~~~~~~~~^~~~~~~
+./robot/../Gundam/head.hpp:156:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[i][1]) + 9.6128800000000003e-1)' from 'double' to 'float' [-Wnarrowing]
+  156 |           eye2[i][1] + 0.961288,
+      |           ~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:157:22: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[i][2]) + 8.3333299999999999e-1)' from 'double' to 'float' [-Wnarrowing]
+  157 |           eye2[i][2] + 0.833333,
+      |           ~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:160:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[(i + 1)][0]) + 5.5500000000000005e-1)' from 'double' to 'float' [-Wnarrowing]
+  160 |           eye2[i + 1][0] + 0.555,
+      |           ~~~~~~~~~~~~~~~^~~~~~~
+./robot/../Gundam/head.hpp:161:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[(i + 1)][1]) + 9.6128800000000003e-1)' from 'double' to 'float' [-Wnarrowing]
+  161 |           eye2[i + 1][1] + 0.961288,
+      |           ~~~~~~~~~~~~~~~^~~~~~~~~~
+./robot/../Gundam/head.hpp:162:26: warning: narrowing conversion of '(((double)((gundam::head*)this)->gundam::head::eye2[(i + 1)][2]) + 8.3333299999999999e-1)' from 'double' to 'float' [-Wnarrowing]
+  162 |           eye2[i + 1][2] + 0.833333,
+      |           ~~~~~~~~~~~~~~~^~~~~~~~~~
+main.cpp: In function 'void draw_style(PROJECTION_MODE, int, int, int, int)':
+main.cpp:109:10: warning: enumeration value 'FOURPRO' not handled in switch [-Wswitch]
+  109 |   switch (style) {
+      |          ^
+make: *** [all] Error 1

@@ -1,6 +1,6 @@
-#include <GL/glut.h>
-#include <GL/gl.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
+// #include <GL/gl.h>
+// #include <GL/freeglut.h>
 #include "button.hpp"
 #include "dragbar.hpp"
 #include "menubar.hpp"
@@ -320,7 +320,7 @@ void init_menubar_button() {
     GLint attack = glutCreateWindow("about");
     glutDisplayFunc(about_display);
     glutReshapeFunc(about_reshape);
-    glutCloseFunc(nothing);
+    // glutCloseFunc(nothing);
   }));
   menus[1].push_back(button(85, 30, 120, 30, "Mouse", [&]() {
     is_polygon = false;
